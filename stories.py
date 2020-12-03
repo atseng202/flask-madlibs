@@ -25,6 +25,7 @@ class Story:
         self.template = text
 
     def generate(self, answers):
+
         """Substitute answers into text."""
 
         text = self.template
@@ -50,3 +51,9 @@ excited_story = Story(
     ["noun", "verb"],
     """OMG!! OMG!! I love to {verb} a {noun}!"""
 )
+
+#should include in this file
+stories = {
+    "silly": silly_story,
+    "excited": excited_story
+}

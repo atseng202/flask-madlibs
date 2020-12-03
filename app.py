@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from flask_debugtoolbar import DebugToolbarExtension
 
-from stories import silly_story
+from stories import silly_story, excited_story, stories
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "secret"
@@ -12,7 +12,10 @@ debug = DebugToolbarExtension(app)
 def show_story_form():
     """ Shows the Madlib story form  """
 
-    return render_template("questions.html", prompts=silly_story.prompts)
+    story = stories.get(request.args['story-templates'])
+
+
+    return render_template("questions.html", story_type=, prompts=story.prompts)
 
 
 @app.route("/results")
@@ -23,4 +26,10 @@ def display_story():
     return render_template("story.html", text=text)
 
     
+@app.route("/")
+def index():
+    """ Display home page with stories templates to select from """
+    templates = [silly_story, excited_story]
+    return render_template("index.html", templates=stories)
+
 

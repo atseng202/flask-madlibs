@@ -14,12 +14,13 @@
         <label class="col-5 col-form-label text-right">{{ prompt }}</label>
         <div class="col-7">
           <input 
-            name={{ prompt }}
+            name="{{ prompt }}"
             required
-            aria-label={{ prompt }}
+            aria-label="{{ prompt }}"
             class="form-control"/> 
         </div>
       {% endfor %} 
+      <input name="story-type" value="" />
     </div>
 
     <button class="btn btn-primary btn-lg w-100">
